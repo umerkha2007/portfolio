@@ -1,0 +1,124 @@
+:root {
+  --base-font-size: 1rem;
+  --golden-ratio: 1.618;
+}
+
+body {
+  font-size: var(--base-font-size);
+  line-height: calc(var(--base-font-size) * var(--golden-ratio));
+  color: hsl(var(--foreground));
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+  color: hsl(var(--foreground));
+}
+
+h1 {
+  font-size: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio));
+  line-height: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio));
+}
+
+h2 {
+  font-size: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio));
+  line-height: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio));
+}
+
+h3 {
+  font-size: calc(var(--base-font-size) * var(--golden-ratio));
+  line-height: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio));
+}
+
+h4 {
+  font-size: calc(var(--base-font-size) * var(--golden-ratio) / var(--golden-ratio));
+  line-height: calc(var(--base-font-size) * var(--golden-ratio));
+}
+
+h5 {
+  font-size: calc(var(--base-font-size) / var(--golden-ratio));
+  line-height: calc(var(--base-font-size) * var(--golden-ratio) / var(--golden-ratio));
+}
+
+h6 {
+  font-size: calc(var(--base-font-size) / (var(--golden-ratio) * var(--golden-ratio)));
+  line-height: calc(var(--base-font-size) / var(--golden-ratio));
+}
+
+.text-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.text-primary {
+  color: hsl(var(--primary-foreground));
+}
+
+.text-secondary {
+  color: hsl(var(--secondary-foreground));
+}
+
+.text-accent {
+  color: hsl(var(--accent-foreground));
+}
+
+.text-destructive {
+  color: hsl(var(--destructive-foreground));
+}
+
+/* Add these styles to your typography.css */
+
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+
+.bg-primary-foreground {
+  background-color: hsl(var(--primary-foreground));
+}
+
+.bg-secondary {
+  background-color: hsl(var(--secondary));
+}
+
+.bg-secondary-foreground {
+  background-color: hsl(var(--secondary-foreground));
+}
+
+.bg-accent {
+  background-color: hsl(var(--accent));
+}
+
+.bg-accent-foreground {
+  background-color: hsl(var(--accent-foreground));
+}
+
+.bg-muted {
+  background-color: hsl(var(--muted));
+}
+
+.bg-muted-foreground {
+  background-color: hsl(var(--muted-foreground));
+}
+
+.bg-destructive {
+  background-color: hsl(var(--destructive));
+}
+
+.bg-destructive-foreground {
+  background-color: hsl(var(--destructive-foreground));
+}
+
+.bg-card {
+  background-color: hsl(var(--card));
+}
+
+.bg-card-foreground {
+  background-color: hsl(var(--card-foreground));
+}
+
+.bg-popover {
+  background-color: hsl(var(--popover));
+}
+
+.bg-popover-foreground {
+  background-color: hsl(var(--popover-foreground));
+}
+
+/* ... other background classes as needed ... */
