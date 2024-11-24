@@ -56,7 +56,7 @@ export function Hero() {
             Learn More
           </Button>
         </div>
-        <div className="image-container-headshot relative h-[94vw] md:relative md:h-[45vh] lg:absolute lg:h-[780px] max-w-[780px] right-0 lg:w-1/2">
+        <div className="image-container-headshot relative h-[94vw] md:relative md:h-[45vh] lg:absolute lg:h-[780px] max-w-[780px] right-0 lg:w-1/2 order-first md:order-last">
           <Image
             src="/image/1.jpg"
             alt="Professional headshot"
