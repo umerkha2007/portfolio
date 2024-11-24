@@ -45,14 +45,14 @@ export function Hero() {
               SQL
             </div>
           </h2>
-          <p className="text-muted-foreground leading-relaxed mb-8">
+          <p className="text-primary leading-relaxed mb-8">
             I am a Full Stack Software Engineer with over 8 years of experience
             in developing robust applications using a variety of technologies. I
             specialize in both front-end and back-end development, cloud
             services, and QA automation. I am passionate about Agile
             methodologies and Test-Driven Development.
           </p>
-          <Button className="button-hero text-white h-6">
+          <Button variant="default" className="button-hero text-muted h-6">
             Learn More
           </Button>
         </div>

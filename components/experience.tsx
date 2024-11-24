@@ -17,10 +17,10 @@ export function Experience() {
             <h2 className="text-3xl font-bold mb-6">
               Umer Khalid - Full Stack Software Engineer
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-primary mb-6">
               I have over 8 years of Full Stack Development Experience, specializing in both front-end and back-end technologies, cloud services, and QA automation. I hold a Bachelors degree in Software Engineering and am a Microsoft certified C# Foundational Developer.
             </p>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-primary mb-6">
               I am an advocate for Agile methodologies and Test-Driven Development, with a proven track record of leading teams, implementing solutions from scratch, and deploying them to the cloud.
             </p>
           </div>

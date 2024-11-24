@@ -7,6 +7,7 @@ body {
   font-size: var(--base-font-size);
   line-height: calc(var(--base-font-size) * var(--golden-ratio));
   color: hsl(var(--foreground));
+  text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6, p, li {
@@ -75,7 +76,7 @@ p {
 /* Add these styles to your typography.css */
 
 .bg-primary {
-  background-color: hsl(var(--primary));
+  background-color: hsl(var(--dark-mode-color-inverse));
 }
 
 .bg-primary-foreground {
