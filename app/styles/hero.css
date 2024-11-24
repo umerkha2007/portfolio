@@ -1,15 +1,15 @@
 /* Add a media query for screen sizes less than 1320px */
 @media (min-width: 1024px) and (max-width: 1320px) {
     .hero {
-        padding-bottom: 10rem;
+        padding-bottom: 12rem;
     }
     /* Define the keyframes for the animation */
     @keyframes moveImage {
       from {
-        top: -180px;
+        top: -106px;
       }
       to {
-        top: -106px;
+        top: 0px;
       }
     }
   
@@ -21,11 +21,11 @@
 @media (min-width: 1321px) {
     @keyframes moveImage {
         from {
-           top: -106px;
+           top: -235px;
           
         }
         to {
-            top: -180px;
+            top: -135px;
         }
       }
        /* Apply the animation to the image container */

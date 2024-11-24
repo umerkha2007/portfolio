@@ -1,0 +1,6 @@
+.button-hero {
+  font-size: calc(1.15*var(--base-font-size));
+  height: 4rem;
+  transition: background-color 0.3s ease;
+}
+

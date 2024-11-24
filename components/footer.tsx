@@ -3,7 +3,7 @@ import Link from "next/link"
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-6 py-12 w-full" style={{ boxSizing: 'border-box' }}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
