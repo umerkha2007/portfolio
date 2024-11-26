@@ -58,6 +58,10 @@ p {
 }
 
 .text-primary {
+  color: hsl(var(--primary));
+}
+
+.text-primary-inverse {
   color: hsl(var(--primary-foreground));
 }
 

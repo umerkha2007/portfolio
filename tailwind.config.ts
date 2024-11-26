@@ -3,7 +3,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 import { addDynamicIconSelectors } from '@iconify/tailwind';
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "selector",
   content: [
 	"./pages/**/*.{js,ts,jsx,tsx,mdx}",
 	"./components/**/*.{js,ts,jsx,tsx,mdx}",
