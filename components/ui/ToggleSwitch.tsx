@@ -1,4 +1,5 @@
 import React from "react";
+import { Sun, Moon } from "lucide-react";
 
 interface ToggleSwitchProps {
   isOn: boolean;
@@ -7,19 +8,28 @@ interface ToggleSwitchProps {
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isOn, handleToggle }) => {
   return (
-    <div className="flex items-center pr-8">
-      <span className="mr-2 text-sm">{isOn ? "Dark Mode" : "Light Mode"}</span>
+    <button
+      onClick={handleToggle}
+      className="flex items-center gap-2"
+      aria-label={isOn ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {isOn ? (
+        <Moon size={16} className="text-muted-foreground" />
+      ) : (
+        <Sun size={16} className="text-muted-foreground" />
+      )}
       <div
-        className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer bg-[var(--dark-mode-color-inverse)]`} 
-        onClick={handleToggle}
+        className="w-11 h-6 flex items-center rounded-full p-1 cursor-pointer bg-[var(--dark-mode-color-inverse)]"
       >
         <div
-          className={`w-4 h-4 rounded-full shadow-md transform  ${
-            isOn ? "translate-x-6 bg-[var(--dark-mode-color)]" : "translate-x-0 bg-white"
-          } transition-transform duration-300 ease-in-out`}
+          className={`w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${
+            isOn
+              ? "translate-x-5 bg-[var(--dark-mode-color)]"
+              : "translate-x-0 bg-white"
+          }`}
         />
       </div>
-    </div>
+    </button>
   );
 };
 

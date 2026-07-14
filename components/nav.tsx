@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ToggleSwitch from "./ui/ToggleSwitch";
@@ -28,14 +27,11 @@ export function Nav() {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10">
-          <Link href="/">
-            <Image
-              src="/image/logo.png"
-              alt="Umer Khalid"
-              width={140}
-              height={56}
-              className="h-10 w-auto"
-            />
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="text-background text-xs font-bold tracking-tight">UK</span>
+            </div>
+            <span className="font-bold text-sm tracking-wide hidden sm:block">Umer Khalid</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
