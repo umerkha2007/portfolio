@@ -1,5 +1,5 @@
 :root {
-  --base-font-size: 1.5rem;
+  --base-font-size: 1rem;
   --golden-ratio: 1.618;
 }
 
@@ -7,7 +7,6 @@ body {
   font-size: var(--base-font-size);
   line-height: calc(var(--base-font-size) * var(--golden-ratio));
   color: hsl(var(--foreground));
-  text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6, p, li {

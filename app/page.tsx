@@ -3,7 +3,6 @@ import { Experience } from "@/components/experience"
 import { Footer } from "@/components/footer"
 import { Hero } from "@/components/hero"
 import { Nav } from "@/components/nav"
-import { Offers } from "@/components/offers"
 import { Projects } from "@/components/projects";
 import { WorkExperience } from "@/components/workexperience";
 
@@ -17,7 +16,6 @@ export default function Home() {
         <WorkExperience />
         <Projects />
         <Contact />
-        <Offers />
       </main>
       <Footer />
     </div>

@@ -1,67 +1,65 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import "../app/styles/hero.css";
-import "../app/styles/buttons.css"
+import { Button } from "@/components/ui/button";
+
+const techStack = [
+  { icon: "icon-[twemoji--robot]", label: "AI / LLMs" },
+  { icon: "icon-[skill-icons--javascript]", label: "JavaScript" },
+  { icon: "icon-[skill-icons--typescript]", label: "TypeScript" },
+  { icon: "icon-[catppuccin--javascript-react]", label: "React" },
+  { icon: "icon-[vscode-icons--file-type-angular]", label: "Angular" },
+  { icon: "icon-[skill-icons--dotnet]", label: ".NET / C#" },
+  { icon: "icon-[devicon--nodejs]", label: "Node.js" },
+  { icon: "icon-[vscode-icons--file-type-sql]", label: "SQL" },
+];
 
 export function Hero() {
   return (
-    <section className="hero px-6 py-12">
-      <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto relative">
-        <div className="grid sm:grid-cols-1">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+    <section id="hero" className="px-6 py-16 md:py-24 overflow-hidden">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 className="text-5xl lg:text-6xl font-bold mb-3 leading-tight">
             Umer Khalid
           </h1>
-          <h2 className="grid grid-cols-3 gap-6 text-xl mb-4 flex flex-wrap items-center">
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[twemoji--robot] h-12 w-12 mr-2 align-middle"></span>
-              <span>Artificial Intelligence</span>
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[skill-icons--javascript] h-12 w-12 mr-2 align-middle"></span>
-              JavaScript
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[skill-icons--typescript] h-12 w-12 mr-2 align-middle"></span>
-              TypeScript
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[catppuccin--javascript-react] h-12 w-12 mr-2 align-middle"></span>
-              React
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[vscode-icons--file-type-angular] h-12 w-12 mr-2 align-middle"></span>
-              Angular
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[skill-icons--dotnet] h-12 w-12 mr-2 align-middle"></span>
-              .NET
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[devicon--nodejs] h-12 w-12 mr-2 align-middle"></span>
-              Node
-            </div>
-            <div className="grid md:grid-cols-2">
-              <span className="icon-[vscode-icons--file-type-sql] h-12 w-12 mr-2 align-middle"></span>
-              SQL
-            </div>
-          </h2>
-          <p className="text-primary leading-relaxed mb-8">
-            I am a Full Stack Software Engineer with over 8 years of experience
-            in developing robust applications using a variety of technologies. I
-            specialize in both front-end and back-end development, cloud
-            services, and QA automation. I am passionate about Agile
-            methodologies and Test-Driven Development.
+          <p className="text-lg text-muted-foreground mb-6 font-medium">
+            Senior Full Stack Software Engineer &amp; AI Specialist
           </p>
-          <Button variant="default" className="button-hero text-muted h-6">
-            Learn More
-          </Button>
+          <div className="flex flex-wrap gap-2 mb-8">
+            {techStack.map(({ icon, label }) => (
+              <span
+                key={label}
+                className="flex items-center gap-1.5 bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm font-medium"
+              >
+                <span className={`${icon} h-5 w-5 flex-shrink-0`} />
+                {label}
+              </span>
+            ))}
+          </div>
+          <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg text-base">
+            9+ years building scalable applications across full-stack, cloud, and AI.
+            Specializing in LLM integration, conversational AI, and micro-frontend
+            architecture. Microsoft certified, agile advocate, and tech community speaker.
+          </p>
+          <div className="flex gap-4 flex-wrap">
+            <a href="#about">
+              <Button size="lg" className="px-8">
+                About Me
+              </Button>
+            </a>
+            <a href="#projects">
+              <Button size="lg" variant="outline" className="px-8">
+                View Projects
+              </Button>
+            </a>
+          </div>
         </div>
-        <div className="image-container-headshot relative h-[94vw] md:relative md:h-[45vh] lg:absolute lg:h-[780px] max-w-[780px] right-0 lg:w-1/2 order-first md:order-last">
+
+        <div className="relative h-[460px] md:h-[520px] order-first md:order-last rounded-2xl overflow-hidden">
           <Image
             src="/image/1.jpg"
-            alt="Professional headshot"
+            alt="Umer Khalid"
             fill
             className="object-cover object-[27%]"
+            priority
           />
         </div>
       </div>
