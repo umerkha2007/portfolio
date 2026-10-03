@@ -36,7 +36,7 @@ export function Hero() {
   );
 
   return (
-    <section id="top" ref={ref} className="scene px-5 pb-16 pt-32 md:px-8 md:pt-40">
+    <section id="top" ref={ref} className="scene px-5 pb-14 pt-28 md:px-8 md:pb-16 md:pt-40">
       <div className="ls ls-cover" />
       <div className="gridbg" style={{ "--gx": "74%", "--gy": "34%" } as React.CSSProperties} />
       <div className="beam" style={{ left: "74%" }} />
@@ -44,10 +44,6 @@ export function Hero() {
       <div className="mx-auto max-w-[1180px]">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr]">
           <FadeIn>
-            <span className="pill">
-              <i />
-              Software architect and engineer, Vancouver BC
-            </span>
             <h1 className="display fade-type mt-8 text-[clamp(5rem,13.5vw,11.5rem)]">
               Umer
               <br />
@@ -56,7 +52,7 @@ export function Hero() {
             <p className="c-t2 mt-7 max-w-[470px] text-[clamp(1.25rem,2vw,1.6rem)] font-light leading-[1.3]">
               10+ Years Engineer building platforms for businesses that scale without breaking.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex items-center gap-2.5 sm:mt-9 sm:gap-3">
               <BookCall />
               <a href="#work" className="btn btn-ghost">
                 See the work
@@ -74,7 +70,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[360px_1fr] lg:items-end">
+        <div className="mt-10 grid gap-8 sm:mt-14 sm:gap-10 lg:grid-cols-[360px_1fr] lg:items-end">
           <FadeIn delay={0.1}>
             <div className="hair border-t">
               {toc.map((t) => (
@@ -93,12 +89,17 @@ export function Hero() {
 
           <FadeIn delay={0.2} className="glass grid gap-6 p-6 sm:grid-cols-3 sm:gap-0 sm:p-7">
             {proof.map((s, i) => (
-              <div key={s.n} className={i ? "hair sm:border-l sm:pl-6" : "sm:pr-6"}>
-                <div className="flex h-[84px] items-center">
-                  <Iso shapes={s.shapes} className="max-h-[84px] !w-[120px]" />
+              <div
+                key={s.n}
+                className={`flex items-center gap-5 sm:block ${i ? "hair border-t pt-6 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0" : "sm:pr-6"}`}
+              >
+                <div className="flex h-[76px] w-[96px] flex-none items-center sm:h-[84px] sm:w-auto">
+                  <Iso shapes={s.shapes} className="max-h-[76px] !w-[96px] sm:max-h-[84px] sm:!w-[120px]" />
                 </div>
-                <div className={`n mt-3 text-[34px] ${s.blue ? "c-bl" : ""}`}>{s.n}</div>
-                <p className="c-g mt-2 text-[13.5px] leading-[1.4]">{s.p}</p>
+                <div>
+                  <div className={`n text-[30px] sm:mt-3 sm:text-[34px] ${s.blue ? "c-bl" : ""}`}>{s.n}</div>
+                  <p className="c-g mt-2 text-[13.5px] leading-[1.4]">{s.p}</p>
+                </div>
               </div>
             ))}
           </FadeIn>

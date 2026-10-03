@@ -57,26 +57,26 @@ export function Services() {
   );
 
   return (
-    <section id="services" className="scene alt hair border-t px-5 py-24 md:px-8 md:py-32">
+    <section id="services" className="scene alt hair border-t px-5 py-16 md:px-8 md:py-32">
       <div className="ls ls-tl" />
       <div className="gridbg" style={{ "--gx": "12%", "--gy": "14%" } as React.CSSProperties} />
 
       <div className="mx-auto max-w-[1180px]">
         <SectionHead number="01" label="What I do" step={0} total={7} />
         <FadeIn className="mt-10 max-w-[760px]">
-          <h2 className="h-sec text-[clamp(2.6rem,6vw,4.75rem)]">Where I add the most value.</h2>
+          <h2 className="h-sec text-[clamp(2.6rem,6vw,4.75rem)]">Real Value. Real Results.</h2>
           <p className="c-t2 mt-5 text-[19px] leading-[1.5]">
-            Four kinds of work, each one backed by a platform described further down this page.
+            I have designed, delivered and maintained systems that run for millions of requests daily.
           </p>
         </FadeIn>
 
         <FadeInStagger className="mt-12 grid gap-4 md:grid-cols-2">
           {cards.map((c) => (
-            <FadeInItem key={c.title} className="glass glass-hover flex flex-col p-7 md:p-8">
-              <div className="flex h-[215px] items-center justify-center">
+            <FadeInItem key={c.title} className="glass glass-hover flex flex-col p-6 md:p-8">
+              <div className="flex h-[190px] items-center justify-center sm:h-[215px]">
                 <Iso shapes={c.shapes} captions={c.captions} hold={c.hold} className="max-h-[170px] max-w-[340px]" />
               </div>
-              <h3 className="mt-6 text-[26px] font-semibold tracking-[-0.025em]">{c.title}</h3>
+              <h3 className="mt-5 text-[24px] font-semibold leading-[1.15] tracking-[-0.025em] sm:mt-6 sm:text-[26px]">{c.title}</h3>
               <p className="c-t2 mb-6 mt-2 max-w-[460px] text-[16px] leading-[1.55]">{c.body}</p>
               <div className="hair mt-auto flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t pt-4">
                 <span className="n c-bl text-[24px]">{c.n}</span>
@@ -86,7 +86,7 @@ export function Services() {
           ))}
         </FadeInStagger>
 
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-16">
           <div className="c-g text-[13px] font-medium">Companies I have worked with</div>
           <div className="hair mt-4 overflow-hidden border-y py-5 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
             <div className="marquee">

@@ -31,12 +31,12 @@ export function Nav() {
   }, [dark]);
 
   return (
-    <header className="fixed top-4 inset-x-0 z-50 px-4">
+    <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4">
       <nav
-        className="glass mx-auto flex max-w-[1180px] items-center justify-between gap-4 !rounded-full py-2 pl-3 pr-2"
+        className="glass mx-auto flex max-w-[1180px] items-center justify-between gap-2 !rounded-full py-2 pl-3 pr-2 sm:gap-4"
         style={{ background: "var(--nav-bg)" }}
       >
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="#top" className="flex items-center gap-2 whitespace-nowrap sm:gap-2.5">
           <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden>
             <polygon points="15,3 26,9 15,15 4,9" fill="#8ec5ff" />
             <polygon points="4,9 15,15 15,27 4,21" fill="#2b7fff" />
@@ -53,7 +53,7 @@ export function Nav() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-none items-center gap-1.5 sm:gap-2">
           <button
             onClick={toggle}
             aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}

@@ -12,7 +12,7 @@ export function Contact() {
   const cube = useMemo(() => scenes.cube(), []);
 
   return (
-    <section id="contact" className="scene alt hair border-t px-5 pb-14 pt-24 md:px-8 md:pt-32">
+    <section id="contact" className="scene alt hair border-t px-5 pb-12 pt-16 md:px-8 md:pb-14 md:pt-32">
       <div className="ls ls-top" />
       <div className="gridbg" style={{ "--gx": "50%", "--gy": "22%" } as React.CSSProperties} />
       <div className="beam" style={{ left: "50%" }} />

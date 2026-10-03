@@ -396,3 +396,32 @@
     animation: none;
   }
 }
+
+/* ---------- small screens ---------- */
+@media (max-width: 639px) {
+  /* the light pools are sized for wide sections; on a phone they would wash the whole section blue */
+  .ls {
+    opacity: 0.55;
+  }
+  .beam {
+    height: 200px;
+  }
+  .rail i {
+    width: 14px;
+  }
+  .btn {
+    height: 46px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+  .btn-sm {
+    height: 38px;
+    padding: 0 13px;
+    font-size: 13.5px;
+  }
+  /* room for two lines, so a caption that wraps does not push the text below it around */
+  .iso-cap {
+    font-size: 13.5px;
+    min-height: 38px;
+  }
+}

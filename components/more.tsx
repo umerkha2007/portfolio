@@ -46,7 +46,7 @@ export function More() {
   );
 
   return (
-    <section id="experience" className="scene hair border-t px-5 py-24 md:px-8 md:py-32">
+    <section id="experience" className="scene hair border-t px-5 py-16 md:px-8 md:py-32">
       <div className="ls ls-tr" />
       <div className="gridbg" style={{ "--gx": "50%", "--gy": "12%" } as React.CSSProperties} />
 
@@ -62,15 +62,15 @@ export function More() {
 
         <FadeInStagger className="mt-12 grid gap-4 md:grid-cols-2">
           {items.map((it) => (
-            <FadeInItem key={it.name} className="glass glass-hover flex flex-col justify-between gap-6 p-7 md:p-8">
+            <FadeInItem key={it.name} className="glass glass-hover flex flex-col justify-between gap-6 p-6 md:p-8">
               <div>
-                <div className="flex items-start justify-between gap-6">
-                  <div>
-                    <h3 className="text-[28px] font-semibold tracking-[-0.02em]">{it.name}</h3>
+                <div className="flex flex-col-reverse gap-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                  <div className="min-w-0">
+                    <h3 className="text-[25px] font-semibold leading-[1.15] tracking-[-0.02em] sm:text-[28px]">{it.name}</h3>
                     <div className="c-g mt-2 text-[14px] leading-[1.4]">{it.role}</div>
                   </div>
-                  <div className="flex h-[170px] w-[190px] flex-none items-center justify-end sm:w-[240px]">
-                    <Iso shapes={it.shapes} label={it.label} className="max-h-[170px]" />
+                  <div className="flex h-[150px] w-full flex-none items-center justify-center sm:h-[170px] sm:w-[240px] sm:justify-end">
+                    <Iso shapes={it.shapes} label={it.label} className="max-h-[150px] max-w-[260px] sm:max-h-[170px]" />
                   </div>
                 </div>
                 <p className="c-t2 mt-5 text-[16.5px] leading-[1.6]">{it.body}</p>

@@ -20,7 +20,7 @@ export function About() {
   const y = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
   const talk = useMemo(() => people.talk(), []);
   return (
-    <section id="about" className="scene alt hair border-t px-5 py-24 md:px-8 md:py-32">
+    <section id="about" className="scene alt hair border-t px-5 py-16 md:px-8 md:py-32">
       <div className="ls ls-tl" />
       <div className="gridbg" style={{ "--gx": "30%", "--gy": "40%" } as React.CSSProperties} />
 

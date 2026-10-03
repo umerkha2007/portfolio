@@ -125,35 +125,35 @@ function useCases(): Case[] {
 
 function CaseSection({ c, flip }: { c: Case; flip: boolean }) {
   return (
-    <section id={c.slug} className="scene hair border-t px-5 py-24 md:px-8 md:py-32">
+    <section id={c.slug} className="scene hair border-t px-5 py-16 md:px-8 md:py-32">
       <div className={`ls ${c.light}`} />
       <div className="gridbg" style={{ "--gx": c.grid.gx, "--gy": c.grid.gy } as React.CSSProperties} />
 
       <div className="mx-auto max-w-[1180px]">
         <SectionHead number={c.number} label="Case study" step={c.step} total={7} />
 
-        <div className="mt-10 grid items-center gap-12 lg:grid-cols-2">
+        <div className="mt-8 grid items-center gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-12">
           <FadeIn className={flip ? "lg:order-2" : ""}>
             <div className="c-g text-[14px]">{c.client}</div>
             <h2 className={`h-case mt-3 ${c.nameClass}`}>{c.name}</h2>
             <p className="c-t2 mt-5 max-w-[560px] text-[19px] leading-[1.5]">{c.sub}</p>
           </FadeIn>
 
-          <div className={`relative flex min-h-[300px] items-center justify-center py-10 ${flip ? "lg:order-1" : ""}`}>
+          <div className={`relative flex items-center justify-center py-4 lg:min-h-[300px] lg:py-10 ${flip ? "lg:order-1" : ""}`}>
             <Iso shapes={c.shapes} captions={c.captions} className={c.artClass} label={c.artLabel} />
           </div>
         </div>
 
-        <FadeInStagger className="mt-12 grid gap-4 lg:grid-cols-3">
-          <FadeInItem className="glass p-7">
+        <FadeInStagger className="mt-8 grid gap-4 sm:mt-12 lg:grid-cols-3">
+          <FadeInItem className="glass p-6 sm:p-7">
             <div className="lab">The challenge</div>
             <p className="c-t2 mt-3 text-[16.5px] leading-[1.55]">{c.challenge}</p>
           </FadeInItem>
-          <FadeInItem className="glass p-7">
+          <FadeInItem className="glass p-6 sm:p-7">
             <div className="lab">What I did</div>
             <p className="c-t2 mt-3 text-[16.5px] leading-[1.55]">{c.did}</p>
           </FadeInItem>
-          <FadeInItem className="result p-7">
+          <FadeInItem className="result p-6 sm:p-7">
             <div className="lab">The result</div>
             <p className="c-t mt-3 text-[16.5px] leading-[1.55]">{c.result}</p>
           </FadeInItem>
@@ -161,7 +161,7 @@ function CaseSection({ c, flip }: { c: Case; flip: boolean }) {
 
         <FadeInStagger className="mt-4 grid gap-4 sm:grid-cols-3">
           {c.stats.map((s, i) => (
-            <FadeInItem key={s.n} className="glass glass-hover px-7 py-6">
+            <FadeInItem key={s.n} className="glass glass-hover px-6 py-5 sm:px-7 sm:py-6">
               <div className={`n text-[clamp(2.2rem,4vw,3.25rem)] ${i === 0 ? "c-bl" : ""}`}>{s.n}</div>
               <p className="c-g mt-2 text-[14px] leading-[1.4]">{s.p}</p>
             </FadeInItem>
