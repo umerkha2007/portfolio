@@ -20,9 +20,9 @@ const outfit = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Umer Khalid - Software Engineer",
+  title: "Umer Khalid — Portfolio",
   description:
-    "Umer Khalid's personal portfolio showcasing software engineering projects and experience.",
+    "Software architect and engineer in Vancouver. 10+ years building platforms for businesses that scale without breaking.",
 };
 export default function RootLayout({
   children,
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>

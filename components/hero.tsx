@@ -1,66 +1,114 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+"use client";
 
-const techStack = [
-  { icon: "icon-[twemoji--robot]", label: "AI / LLMs" },
-  { icon: "icon-[skill-icons--javascript]", label: "JavaScript" },
-  { icon: "icon-[skill-icons--typescript]", label: "TypeScript" },
-  { icon: "icon-[catppuccin--javascript-react]", label: "React" },
-  { icon: "icon-[vscode-icons--file-type-angular]", label: "Angular" },
-  { icon: "icon-[skill-icons--dotnet]", label: ".NET / C#" },
-  { icon: "icon-[devicon--nodejs]", label: "Node.js" },
-  { icon: "icon-[vscode-icons--file-type-sql]", label: "SQL" },
+import { useMemo, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import { Iso } from "@/components/ui/iso";
+import { BookCall } from "@/components/ui/book-call";
+import { FadeIn } from "@/components/ui/fade-in";
+import { scenes } from "@/lib/iso";
+import { CONTACT_EMAIL } from "@/lib/constants";
+
+const toc = [
+  { n: "01", label: "What I do", href: "#services" },
+  { n: "02", label: "BCMEA, port operations platform", href: "#bcmea" },
+  { n: "03", label: "MediaValet, product modernization", href: "#mediavalet" },
+  { n: "04", label: "MonetizeMore, ad technology tools", href: "#monetizemore" },
+  { n: "05", label: "Talks and teaching", href: "#about" },
+  { n: "06", label: "More companies I worked with", href: "#experience" },
+  { n: "07", label: "How to reach me", href: "#contact" },
 ];
 
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const explode = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
+  const artY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+
+  const cargo = useMemo(() => scenes.cargo(4), []);
+  const proof = useMemo(
+    () => [
+      { shapes: scenes.stairs(6, 0.34), n: "10+ years", blue: true, p: "building full stack software, from startups to enterprise platforms" },
+      { shapes: scenes.people(6), n: "500,000+", blue: false, p: "people using platforms I've designed and built" },
+      { shapes: scenes.tower(10), n: "1M+ a day", blue: false, p: "requests handled by tools I built and shipped myself" },
+    ],
+    []
+  );
+
   return (
-    <section id="hero" className="px-6 py-16 md:py-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h1 className="text-5xl lg:text-6xl font-bold mb-3 leading-tight">
-            Umer Khalid
-          </h1>
-          <p className="text-lg text-muted-foreground mb-6 font-medium">
-            Senior Full Stack Software Engineer &amp; AI Specialist
-          </p>
-          <div className="flex flex-wrap gap-2 mb-8">
-            {techStack.map(({ icon, label }) => (
-              <span
-                key={label}
-                className="flex items-center gap-1.5 bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm font-medium"
-              >
-                <span className={`${icon} h-5 w-5 flex-shrink-0`} />
-                {label}
-              </span>
-            ))}
-          </div>
-          <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg text-base">
-            9+ years building scalable applications across full-stack, cloud, and AI.
-            Specializing in LLM integration, conversational AI, and micro-frontend
-            architecture. Microsoft certified, agile advocate, and tech community speaker.
-          </p>
-          <div className="flex gap-4 flex-wrap">
-            <a href="#about">
-              <Button size="lg" className="px-8">
-                About Me
-              </Button>
-            </a>
-            <a href="#projects">
-              <Button size="lg" variant="outline" className="px-8">
-                View Projects
-              </Button>
-            </a>
-          </div>
+    <section id="top" ref={ref} className="scene px-5 pb-16 pt-32 md:px-8 md:pt-40">
+      <div className="ls ls-cover" />
+      <div className="gridbg" style={{ "--gx": "74%", "--gy": "34%" } as React.CSSProperties} />
+      <div className="beam" style={{ left: "74%" }} />
+
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr]">
+          <FadeIn>
+            <span className="pill">
+              <i />
+              Software architect and engineer, Vancouver BC
+            </span>
+            <h1 className="display fade-type mt-8 text-[clamp(5rem,13.5vw,11.5rem)]">
+              Umer
+              <br />
+              Khalid
+            </h1>
+            <p className="c-t2 mt-7 max-w-[470px] text-[clamp(1.25rem,2vw,1.6rem)] font-light leading-[1.3]">
+              10+ Years Engineer building platforms for businesses that scale without breaking.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <BookCall />
+              <a href="#work" className="btn btn-ghost">
+                See the work
+                <ArrowDown size={16} />
+              </a>
+            </div>
+          </FadeIn>
+
+          <motion.div style={{ y: artY }} className="relative mx-auto w-full max-w-[640px] lg:-mr-6">
+            <Iso shapes={cargo} hold={7} explode={explode} explodeBy={22} label="A stack of shipping containers, the top one blue" />
+            <FadeIn delay={0.9} className="glass tag bottom-0 right-0 hidden sm:block">
+              <b>Built to scale</b>
+              one platform on top of the next
+            </FadeIn>
+          </motion.div>
         </div>
 
-        <div className="relative h-[460px] md:h-[520px] order-first md:order-last rounded-2xl overflow-hidden">
-          <Image
-            src="/image/1.jpg"
-            alt="Umer Khalid"
-            fill
-            className="object-cover object-[27%]"
-            priority
-          />
+        <div className="mt-14 grid gap-10 lg:grid-cols-[360px_1fr] lg:items-end">
+          <FadeIn delay={0.1}>
+            <div className="hair border-t">
+              {toc.map((t) => (
+                <a
+                  key={t.n}
+                  href={t.href}
+                  className="hair c-t2 group grid grid-cols-[34px_1fr_auto] border-b py-[10px] text-[15px] transition-colors hover:text-[color:var(--t)]"
+                >
+                  <em className="c-bl font-semibold not-italic">{t.n}</em>
+                  {t.label}
+                  <span className="c-g2 transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2} className="glass grid gap-6 p-6 sm:grid-cols-3 sm:gap-0 sm:p-7">
+            {proof.map((s, i) => (
+              <div key={s.n} className={i ? "hair sm:border-l sm:pl-6" : "sm:pr-6"}>
+                <div className="flex h-[84px] items-center">
+                  <Iso shapes={s.shapes} className="max-h-[84px] !w-[120px]" />
+                </div>
+                <div className={`n mt-3 text-[34px] ${s.blue ? "c-bl" : ""}`}>{s.n}</div>
+                <p className="c-g mt-2 text-[13.5px] leading-[1.4]">{s.p}</p>
+              </div>
+            ))}
+          </FadeIn>
+        </div>
+
+        <div className="c-g2 mt-10 flex flex-wrap justify-between gap-2 text-[13px]">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-[color:var(--t)]">
+            {CONTACT_EMAIL}
+          </a>
+          <span>Vancouver, British Columbia</span>
         </div>
       </div>
     </section>

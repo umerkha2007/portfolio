@@ -1,23 +1,23 @@
-import { Contact } from "@/components/contact"
-import { Experience } from "@/components/experience"
-import { Footer } from "@/components/footer"
-import { Hero } from "@/components/hero"
-import { Nav } from "@/components/nav"
-import { Projects } from "@/components/projects";
-import { WorkExperience } from "@/components/workexperience";
+import { About } from "@/components/about";
+import { Cases } from "@/components/cases";
+import { Contact } from "@/components/contact";
+import { Hero } from "@/components/hero";
+import { More } from "@/components/more";
+import { Nav } from "@/components/nav";
+import { Services } from "@/components/services";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <>
       <Nav />
       <main>
         <Hero />
-        <Experience />
-        <WorkExperience />
-        <Projects />
+        <Services />
+        <Cases />
+        <About />
+        <More />
         <Contact />
       </main>
-      <Footer />
-    </div>
-  )
+    </>
+  );
 }

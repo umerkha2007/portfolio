@@ -9,10 +9,6 @@ body {
   color: hsl(var(--foreground));
 }
 
-h1, h2, h3, h4, h5, h6, p, li {
-  color: hsl(var(--foreground));
-}
-
 h1 {
   font-size: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio));
   line-height: calc(var(--base-font-size) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio));

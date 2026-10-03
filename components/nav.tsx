@@ -1,80 +1,69 @@
 "use client";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import ToggleSwitch from "./ui/ToggleSwitch";
 
-const navLinks = [
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
+import { BookCall } from "@/components/ui/book-call";
+
+const links = [
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
 export function Nav() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+    if (localStorage.getItem("theme") === "light") setDark(false);
+  }, []);
+
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-      <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-        <div className="flex items-center gap-10">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
-              <span className="text-background text-xs font-bold tracking-tight">UK</span>
-            </div>
-            <span className="font-bold text-sm tracking-wide hidden sm:block">Umer Khalid</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
+    <header className="fixed top-4 inset-x-0 z-50 px-4">
+      <nav
+        className="glass mx-auto flex max-w-[1180px] items-center justify-between gap-4 !rounded-full py-2 pl-3 pr-2"
+        style={{ background: "var(--nav-bg)" }}
+      >
+        <a href="#top" className="flex items-center gap-2.5">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden>
+            <polygon points="15,3 26,9 15,15 4,9" fill="#8ec5ff" />
+            <polygon points="4,9 15,15 15,27 4,21" fill="#2b7fff" />
+            <polygon points="26,9 15,15 15,27 26,21" fill="#155dfc" />
+          </svg>
+          <span className="text-[15px] font-semibold tracking-tight">Umer Khalid</span>
+        </a>
 
-        <div className="flex items-center gap-3">
-          <ToggleSwitch
-            isOn={isDarkMode}
-            handleToggle={() => setIsDarkMode(!isDarkMode)}
-          />
-          <button
-            className="md:hidden p-2 rounded-md hover:bg-secondary transition-colors"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {menuOpen && (
-        <div className="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
+        <div className="hidden items-center gap-7 md:flex">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="c-g text-sm transition-colors hover:text-[color:var(--t)]">
+              {l.label}
             </a>
           ))}
         </div>
-      )}
-    </nav>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+            className="btn btn-ghost btn-sm !w-10 !px-0"
+          >
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          <BookCall small />
+        </div>
+      </nav>
+    </header>
   );
 }

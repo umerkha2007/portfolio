@@ -1,105 +1,72 @@
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin, Github, MapPin } from "lucide-react";
+"use client";
 
-const contactItems = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "umerkha2007@gmail.com",
-    href: "mailto:umerkha2007@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "778-682-4780",
-    href: "tel:7786824780",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Vancouver, BC, Canada",
-    href: null,
-  },
-];
-
-const socialLinks = [
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/umerkhalid1",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com/umerkha2007",
-  },
-];
+import { useMemo } from "react";
+import { Iso } from "@/components/ui/iso";
+import { BookCall } from "@/components/ui/book-call";
+import { FadeIn } from "@/components/ui/fade-in";
+import { SectionHead } from "@/components/ui/section-head";
+import { scenes } from "@/lib/iso";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
 
 export function Contact() {
+  const cube = useMemo(() => scenes.cube(), []);
+
   return (
-    <section id="contact" className="px-6 py-16 md:py-24">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-3">Get in Touch</h2>
-        <p className="text-center text-muted-foreground mb-12 text-base">
-          Open to new opportunities — let&apos;s build something great together
-        </p>
+    <section id="contact" className="scene alt hair border-t px-5 pb-14 pt-24 md:px-8 md:pt-32">
+      <div className="ls ls-top" />
+      <div className="gridbg" style={{ "--gx": "50%", "--gy": "22%" } as React.CSSProperties} />
+      <div className="beam" style={{ left: "50%" }} />
 
-        <div className="grid md:grid-cols-2 gap-12 items-start max-w-4xl mx-auto">
-          <div>
-            <h3 className="font-semibold text-lg mb-6">Contact Details</h3>
-            <div className="space-y-4 mb-8">
-              {contactItems.map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon size={18} className="text-muted-foreground" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground">{label}</p>
-                    {href ? (
-                      <a href={href} className="text-sm font-medium hover:underline">
-                        {value}
-                      </a>
-                    ) : (
-                      <p className="text-sm font-medium">{value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="mx-auto max-w-[1180px]">
+        <SectionHead number="07" label="How I work" extra="Next step" step={6} total={7} />
 
-            <h3 className="font-semibold text-lg mb-4">Connect Online</h3>
-            <div className="flex gap-3">
-              {socialLinks.map(({ icon: Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-secondary hover:bg-border text-secondary-foreground px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
-                >
-                  <Icon size={16} />
-                  {label}
-                </a>
-              ))}
-            </div>
+        <div className="mx-auto mt-12 flex max-w-[900px] flex-col items-center text-center">
+          <div className="w-[190px]">
+            <Iso shapes={cube} label="A single blue cube" />
           </div>
 
-          <div className="bg-secondary rounded-2xl p-8 flex flex-col items-start">
-            <div className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center mb-4">
-              <Mail size={20} className="text-foreground" />
-            </div>
-            <h3 className="font-bold text-xl mb-2">Let&apos;s Work Together</h3>
-            <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-              Whether you have a project in mind, need a technical partner, or want to
-              discuss engineering challenges — I&apos;d love to hear from you.
+          <FadeIn>
+            <h2 className="h-sec mt-10 text-[clamp(3.5rem,10vw,8rem)]">Let&apos;s talk.</h2>
+            <p className="c-t2 mx-auto mt-6 max-w-[520px] text-[19px] leading-[1.5]">
+              Have an idea worth bringing to life, a business ready to scale, or a challenge worth solving? Reach out.
+              Let&apos;s turn your vision into something built to grow.
             </p>
-            <a href="mailto:umerkha2007@gmail.com">
-              <Button size="lg" className="px-8">
-                Send an Email
-              </Button>
+          </FadeIn>
+
+          <FadeIn delay={0.1} className="mt-9">
+            <BookCall />
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="fade-type mt-12 block break-all text-[clamp(1.7rem,6.4vw,4.6rem)] font-semibold leading-none tracking-[-0.045em] transition-opacity hover:opacity-80"
+            >
+              {CONTACT_EMAIL}
             </a>
-          </div>
+            <div className="c-t2 mt-6 flex flex-wrap justify-center gap-x-9 gap-y-2 text-[15.5px]">
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--t)]">
+                <span className="c-bl mr-2">LinkedIn</span>linkedin.com/in/umerkhalid1
+              </a>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--t)]">
+                <span className="c-bl mr-2">GitHub</span>github.com/umerkha2007
+              </a>
+            </div>
+          </FadeIn>
         </div>
+
+        <footer className="hair c-g mt-24 grid gap-6 border-t pt-6 text-[12.5px] leading-[1.6] md:grid-cols-[1.4fr_1fr]">
+          <div className="max-w-[520px]">
+            <b className="c-t font-medium">Sources</b>
+            <br />
+            BCMEA project reporting, 2026. MediaValet 2022 and 2023 annual results. MonetizeMore.com and founder
+            interview, 2026. Company figures describe the businesses named.
+          </div>
+          <div className="flex items-end justify-between gap-6 md:justify-end md:gap-10">
+            <span>Vancouver, British Columbia</span>
+            <span>&copy; {new Date().getFullYear()} Umer Khalid</span>
+          </div>
+        </footer>
       </div>
     </section>
   );
